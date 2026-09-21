@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+#root{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@theme{
+  --color-rabbit-orange: #ea2e0e;
+}
+
+.container-class{
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container-class::-webkit-scrollbar{
+  display: none;
+}

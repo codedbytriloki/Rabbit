@@ -1,0 +1,12 @@
+logs
+*.logs
+
+frontend/nodu_modules/
+backend/nodu_modules/
+
+
+frontend/.env
+backend/.env
+
+
+.DS_Store
