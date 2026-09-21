@@ -13,7 +13,7 @@ const Footer = () => {
     e.preventDefault()
     try {
 
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/subscriber`, { email })
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/subscriber`, { email })
       toast.success("Subscribed successfully")
       setEmail('')
     } catch (error) {

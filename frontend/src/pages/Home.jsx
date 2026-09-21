@@ -27,7 +27,7 @@ const Home = () => {
 
     const fetchBestSeller = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/products/best-seller`);
+        const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products/best-seller`);
         setBestSellerProduct(response.data)
       } catch (error) {
         console.error(error)

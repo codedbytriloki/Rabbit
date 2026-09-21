@@ -78,7 +78,7 @@ const Checkout = () => {
 
     try {
       setLoad(true)
-      const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/checkout/${checkoutId}/pay`, {}, {
+      const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/checkout/${checkoutId}/pay`, {}, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("userToken")}`
         }
@@ -103,7 +103,7 @@ const Checkout = () => {
       handler: async function (res) {
         try {
           setLoad(true)
-          await axios.put(`${import.meta.env.VITE_SERVER_URL}/checkout/${orderId}/verify`, {
+          await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/checkout/${orderId}/verify`, {
             paymentDetails: {
               razorpay_payment_id: res.razorpay_payment_id,
               razorpay_order_id: res.razorpay_order_id,
@@ -114,7 +114,7 @@ const Checkout = () => {
               Authorization: `Bearer ${localStorage.getItem("userToken")}`
             }
           })
-          await axios.post(`${import.meta.env.VITE_SERVER_URL}/checkout/${orderId}/finalize`, {}, {
+          await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/checkout/${orderId}/finalize`, {}, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("userToken")}`
             }

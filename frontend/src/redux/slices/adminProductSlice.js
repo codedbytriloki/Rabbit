@@ -3,7 +3,7 @@ import axios from "axios"
 
 // fetch admin products
 export const fetchAdminProducts = createAsyncThunk("adminProducts/fetchProducts", async () => {
-  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/admin/products`, {
+  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/admin/products`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("userToken")}`
     }
@@ -14,7 +14,7 @@ export const fetchAdminProducts = createAsyncThunk("adminProducts/fetchProducts"
 // create new Product
 export const addProduct = createAsyncThunk("adminProducts/addProduct", async (productData, { rejectWithValue }) => {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/admin/products/`, productData, {
+    const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/`, productData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
@@ -29,7 +29,7 @@ export const addProduct = createAsyncThunk("adminProducts/addProduct", async (pr
 // update existing product
 export const updateProduct = createAsyncThunk("adminProducts/updateProduct", async ({ id, productData }, { rejectWithValue }) => {
   try {
-    const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/admin/products/${id}`, productData, {
+    const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/${id}`, productData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
@@ -44,7 +44,7 @@ export const updateProduct = createAsyncThunk("adminProducts/updateProduct", asy
 
 // delete product
 export const deleteProduct = createAsyncThunk("adminProducts/deleteProduct", async (id) => {
-  await axios.delete(`${import.meta.env.VITE_SERVER_URL}/admin/products/${id}`, {
+  await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("userToken")}`
     }

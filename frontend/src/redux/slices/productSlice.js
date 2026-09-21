@@ -20,20 +20,20 @@ export const fetchProductByFilters = createAsyncThunk("products/fetchByFilters",
   if (brand) query.append("brand", brand)
   if (limit) query.append("limit", limit)
 
-  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/products?${query.toString()}`);
+  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products?${query.toString()}`);
   return response.data;
 })
 
 
 // single product by ID
 export const fetchProductDetails = createAsyncThunk("products/fetchProductDetails", async (id) => {
-  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/products/${id}`);
+  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products/${id}`);
   return response.data
 })
 
 
 export const updateProduct = createAsyncThunk("products/updateProduct", async ({ id, productData }) => {
-  const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/admin/products/${id}`, productData, {
+  const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/${id}`, productData, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("userToken")}`
     }
@@ -44,7 +44,7 @@ export const updateProduct = createAsyncThunk("products/updateProduct", async ({
 // fetch similarProducts 
 
 export const fetchSimilarProducts = createAsyncThunk("products/fetchSimilarProducts", async ({ id }) => {
-  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/products/similar/${id}`);
+  const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products/similar/${id}`);
   return response.data
 })
 

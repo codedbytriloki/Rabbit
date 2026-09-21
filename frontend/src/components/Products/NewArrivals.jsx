@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-// import Stylishacket from '../../assets/Stylish Jacket.jpeg'
-// import CasualShirt from '../../assets/Casual Shirt.jpeg'
-// import ElegantDress from '../../assets/Elegant Dress.jpeg'
-// import TrendySneakers from '../../assets/Trendy Sneakers.jpeg'
-// import FormalPants from '../../assets/Formal Pants.jpeg'
-// import ClassicPlaetedTrousers from '../../assets/Classic Plaeted Trousers.jpeg'
-// import VNeckWrapTop from '../../assets/V-Neck Wrap Top.jpeg'
-// import RuffleSleeveBlouse from '../../assets/Ruffle Sleeve Blouse.jpeg'
 import axios from 'axios'
 
 const NewArrivals = () => {
@@ -24,7 +16,7 @@ const NewArrivals = () => {
   useEffect(() => {
     const fetchNewArrivals = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/products/new-arrivals`)
+        const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/products/new-arrivals`)
         setNewArrivals(response.data)
       } catch (error) {
         console.error(error)
@@ -33,97 +25,6 @@ const NewArrivals = () => {
     fetchNewArrivals()
   }, [])
 
-  // const newArrivals = [
-  //   {
-  //     _id: 1,
-  //     name: "Stylish Jacket",
-  //     price: 120,
-  //     images: [
-  //       {
-  //         url: Stylishacket,
-  //         altText: "Stylish Jacket"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 2,
-  //     name: "Casual Shirt",
-  //     price: 99,
-  //     images: [
-  //       {
-  //         url: CasualShirt,
-  //         altText: "Casual Shirt"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 3,
-  //     name: "Formal Pants",
-  //     price: 70,
-  //     images: [
-  //       {
-  //         url: FormalPants,
-  //         altText: "Formal Pants"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 4,
-  //     name: "Trendy Sneakers",
-  //     price: 55,
-  //     images: [
-  //       {
-  //         url: TrendySneakers,
-  //         altText: "Trendy Sneakers"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 5,
-  //     name: "Elegant Dress",
-  //     price: 45,
-  //     images: [
-  //       {
-  //         url: ElegantDress,
-  //         altText: "Elegant Dress"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 6,
-  //     name: "Classic Plaeted Trousers",
-  //     price: 99,
-  //     images: [
-  //       {
-  //         url: ClassicPlaetedTrousers,
-  //         altText: "Classic Plaeted Trousers"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 7,
-  //     name: "V-Neck Wrap Top",
-  //     price: 120,
-  //     images: [
-  //       {
-  //         url: VNeckWrapTop,
-  //         altText: "V-Neck Wrap Top"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     _id: 8,
-  //     name: "Ruffle Sleeve Blouse",
-  //     price: 50,
-  //     images: [
-  //       {
-  //         url: RuffleSleeveBlouse,
-  //         altText: "Ruffle Sleeve Blouse"
-  //       }
-  //     ]
-  //   },
-
-  // ]
 
   const handleMouseDown = (e) => {
     setIsDragging(true);

@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const fetchAllOrders = createAsyncThunk("adminOrders/fetchAllOrders", async (_DO_NOT_USE_ActionTypes, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/admin/orders`, {
+    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/admin/orders`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }
@@ -17,7 +17,7 @@ export const fetchAllOrders = createAsyncThunk("adminOrders/fetchAllOrders", asy
 
 export const orderDetail = createAsyncThunk("adminOrders/orderDetail", async (id, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/admin/orders/${id}`, {
+    const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/admin/orders/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }
@@ -30,7 +30,7 @@ export const orderDetail = createAsyncThunk("adminOrders/orderDetail", async (id
 
 export const updateOrdersStatus = createAsyncThunk("adminOrders/updateOrdersStatus", async ({ id, status }, { rejectWithValue }) => {
   try {
-    const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/admin/orders/${id}`, { status }, {
+    const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/admin/orders/${id}`, { status }, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }
@@ -43,7 +43,7 @@ export const updateOrdersStatus = createAsyncThunk("adminOrders/updateOrdersStat
 
 export const deleteOrder = createAsyncThunk("adminOrders/deleteOrder", async (id, { rejectWithValue }) => {
   try {
-    await axios.delete(`${import.meta.env.VITE_SERVER_URL}/admin/orders/${id}`, status, {
+    await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/admin/orders/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }

@@ -53,7 +53,7 @@ const OrderDetailsPage = () => {
 
     try {
       setLoad(true)
-      const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/products/review/${productId}`, { ranking: rank, comment: reviewText }, {
+      const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/products/review/${productId}`, { ranking: rank, comment: reviewText }, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("userToken")}`
         }
