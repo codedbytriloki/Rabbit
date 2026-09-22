@@ -29,7 +29,7 @@ export const protect = async (req, res, next) => {
 }
 
 export const admin = async(req, res,next) => {
-  if(req.user && req.user.role === "admin" && req.user.role !== "Admin"){
+  if(req.user && req.user.role === "admin"){
     next()
   }else{
     res.status(403).json({
