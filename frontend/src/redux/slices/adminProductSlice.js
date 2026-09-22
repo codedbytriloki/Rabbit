@@ -16,7 +16,6 @@ export const addProduct = createAsyncThunk("adminProducts/addProduct", async (pr
   try {
     const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/`, productData, {
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }
     });
@@ -31,7 +30,6 @@ export const updateProduct = createAsyncThunk("adminProducts/updateProduct", asy
   try {
     const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/admin/products/${id}`, productData, {
       headers: {
-        "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`
       }
     });
