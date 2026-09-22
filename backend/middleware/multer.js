@@ -2,22 +2,23 @@ import multer from "multer"
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public")
+    cb(null, "/tmp")
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const safeName = file.originalname.replace(/[^a-zA-Z0-9.-]/g, "-");
+    cb(null, `${Date.now()}-${safeName}`);
   }
 });
 
 export const upload = multer({
   storage,
-  limits:{
+  limits: {
     fileSize: 5 * 1024 * 1024
   },
-  fileFilter:(req, file, cb) => {
-    if(file.mimetype.startsWith("image/")){
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith("image/")) {
       cb(null, true)
-    }else{
+    } else {
       cb(new Error("Only image files are allowed"))
     }
   }

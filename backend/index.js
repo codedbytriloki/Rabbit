@@ -12,11 +12,11 @@ import adminUserRouter from './routes/adminUserRoutes.js'
 import adminProductRouter from './routes/adminProductRoutes.js'
 import adminOrderRouter from './routes/adminOrderRoutes.js'
 
-
 const app = express()
 
 app.use(cors({
   origin: [
+    "https://rabbit-smoky.vercel.app",
     "https://rabbit-2t8i.vercel.app",
     "http://localhost:5173"
   ],
@@ -26,8 +26,6 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-
-// routes
 app.use("/api/users", userRouter)
 app.use("/api/products", productRouter)
 app.use("/api/cart", cartRouter)
@@ -35,7 +33,6 @@ app.use("/api/checkout", checkoutRouter)
 app.use("/api/orders", orderRouter)
 app.use("/api", subscriberRouter)
 
-// Admin
 app.use("/api/admin/users", adminUserRouter)
 app.use("/api/admin/products", adminProductRouter)
 app.use("/api/admin/orders", adminOrderRouter)
@@ -45,10 +42,8 @@ app.get("/", (req, res) => {
 })
 
 const port = process.env.PORT || 3000
-// mongodb connection
 connectDB();
 
 app.listen(port, () => {
   console.log(`Server is running on port : http://localhost:${port}`);
 })
-
