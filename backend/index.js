@@ -16,7 +16,10 @@ import adminOrderRouter from './routes/adminOrderRoutes.js'
 const app = express()
 
 app.use(cors({
-  origin: "https://rabbit-2t8i.vercel.app",
+  origin: [
+    "https://rabbit-2t8i.vercel.app",
+    "http://localhost:5173"
+  ],
   credentials: true
 }))
 
