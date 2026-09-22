@@ -193,7 +193,7 @@ const ProductDetails = ({ productId }) => {
                   </button>
                 </div>
               </div>
-              <button onClick={handleAddToCart} disabled={isButtonDisabled || !selectedSize || !selectedColor || selectedProduct.countInStock === 0} className={`bg-black text-white py-2 px-6 rounded w-full mb-4 disabled:opacity-50 ${isButtonDisabled ? "cursor-not-allowed" : "hover:bg-gray-900"}`}>{isButtonDisabled ? "Adding..." : "ADD TO CART"}</button>
+              <button onClick={handleAddToCart} disabled={isButtonDisabled || selectedProduct.countInStock === 0} className={`bg-black text-white py-2 px-6 rounded w-full mb-4 disabled:opacity-50 ${isButtonDisabled ? "cursor-not-allowed" : "hover:bg-gray-900"}`}>{isButtonDisabled ? "Adding..." : "ADD TO CART"}</button>
               {selectedProduct.countInStock === 0 && (
                 <p className="text-red-500 text-sm">Product is out of stock.</p>
               )}
